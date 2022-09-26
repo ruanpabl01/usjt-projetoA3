@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "586a473a-347b-4e67-9205-e95e9bb379b1",
+		"name": "Projeto A3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Medicamentos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/medicamentos",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"medicamentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Medicamentos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomeMedicamento\": \"LEMBRETE ANTIGO 3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/medicamentos",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"medicamentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Medicamentos",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idMedicamento\": 1,\r\n    \"nomeMedicamento\": \"NOVO LEMBvcxvxcRETE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/medicamentos",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"medicamentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Medicamentos",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idMedicamento\" : 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/medicamentos",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"medicamentos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
