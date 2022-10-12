@@ -1,0 +1,19 @@
+<mat-card>
+  <form>
+    <mat-form-field>
+      <input
+        type="number"
+        matInput
+        placeholder="Digite ID do medicamento a ser deletado (Use a consulta de medicamentos caso não saiba o ID)"
+        aria-describedby="Teste"
+        name="nomeMedicamentoDelete"
+        ngModel
+        required
+        minlength="2"/>
+      <mat-error>Digite um ID válido</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Deletar</button>
+
+  </form>
+</mat-card>

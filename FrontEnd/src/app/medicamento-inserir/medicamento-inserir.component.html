@@ -1,0 +1,39 @@
+<mat-card>
+  <form>
+    <mat-form-field>
+      <input
+        type="text"
+        matInput
+        placeholder="Digite o nome do medicamento"
+        name="nomeMedicamento"
+        ngModel
+        required
+        minlength="2"/>
+      <mat-error>Digite um nome válido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        type="text"
+        matInput
+        placeholder="Digite o hospital cujo qual o medicamento está disponível"
+        ngModel
+        name="hospital"
+        required />
+      <mat-error>Digite um nome válido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        type="number"
+        matInput
+        placeholder="Digite a quantidade disponível do medicamento"
+        name="qtddMedicamento"
+        ngModel
+        required />
+      <mat-error>Digite um valor válido</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary">Inserir Estoque</button>
+
+  </form>
+</mat-card>

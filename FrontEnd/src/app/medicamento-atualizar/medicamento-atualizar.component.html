@@ -1,0 +1,30 @@
+<mat-card>
+  <form>
+    <mat-form-field>
+      <input
+        type="number"
+        matInput
+        placeholder="Digite o ID do medicamento para atualizar o estoque (Use a consulta de medicamentos caso não saiba o ID)"
+        name="idMedicamentoAtualizar"
+        ngModel
+        required
+        minlength="2"/>
+      <mat-error>Digite um ID válido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        type="number"
+        matInput
+        placeholder="Digite a quantidade a ser subtraída do estoque do medicamento"
+        name="qtddMedicamentoAtualizar"
+        ngModel
+        required
+        minlength="2"/>
+      <mat-error>Digite um ID válido</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Atualizar</button>
+
+  </form>
+</mat-card>
