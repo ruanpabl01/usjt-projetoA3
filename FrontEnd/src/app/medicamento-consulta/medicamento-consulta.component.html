@@ -1,14 +1,14 @@
 <mat-card>
-  <form>
+  <form (submit)="onConsultarMedicamento(medicamentoForm)" #medicamentoForm="ngForm">
     <mat-form-field>
       <input
-        type="text"
-        matInput
-        placeholder="Digite o nome do medicamento para consulta."
-        name="nomeMedicamentoConsulta"
-        ngModel
-        required
-        minlength="2"/>
+      type="text"
+      matInput
+      placeholder="Digite o nome do medicamento para consulta."
+      name="nomeMedicamentoConsulta"
+      ngModel
+      required
+      minlength="2" />
       <mat-error>Digite um nome válido.</mat-error>
     </mat-form-field>
 

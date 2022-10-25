@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MedicamentoService } from '../medicamento.service';
 
 @Component({
   selector: 'app-medicamento-delete',
@@ -9,4 +10,11 @@ import { NgForm } from '@angular/forms';
 
 export class MedicamentoDeleteComponent {
 
+  constructor(
+    private medicamentoService: MedicamentoService,
+    ) {}
+
+  onDelete(form: NgForm){
+    this.medicamentoService.removerMedicamento(form.value.idMedicamentoDelete)
+  }
 }

@@ -1,5 +1,6 @@
 <mat-card>
-  <form>
+  <form (submit)="onAdicionarMedicamento(medicamentoForm)" #medicamentoForm="ngForm">
+
     <mat-form-field>
       <input
         type="text"
@@ -17,8 +18,8 @@
         type="text"
         matInput
         placeholder="Digite o hospital cujo qual o medicamento está disponível"
-        ngModel
         name="hospital"
+        ngModel
         required />
       <mat-error>Digite um nome válido</mat-error>
     </mat-form-field>
@@ -28,7 +29,7 @@
         type="number"
         matInput
         placeholder="Digite a quantidade disponível do medicamento"
-        name="qtddMedicamento"
+        name="quantidadeDisponivel"
         ngModel
         required />
       <mat-error>Digite um valor válido</mat-error>

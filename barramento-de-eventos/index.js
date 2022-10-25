@@ -5,16 +5,21 @@ const axios = require('axios');
 const app= express();
 app.use(express.json());
 
+const eventos = [];
+
 app.post('/eventos', (req, res) => {
     const evento = req.body;
-    //envia o evento para o microsserviço de lembretes
-    axios.post('http://localhost:4000/eventos', evento)
-    .catch((err) => {
-        console.log("Microsserviço de medicamentos fora do ar.")
-    });
-
+    eventos.push(evento);
+    
+    for(i = 0; i < eventos.length; i++){
+        console.log(eventos[i])
+    }
     res.status(200).send({msg: 'ok'});
 });
+
+app.get("/eventos", (req, res) =>{
+    res.send(eventos);
+})
 
 app.listen(10000, () => {
     console.log('Barramento de eventos. Porta 10000');

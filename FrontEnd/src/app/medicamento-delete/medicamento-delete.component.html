@@ -1,12 +1,12 @@
 <mat-card>
-  <form>
+  <form (submit)="onDelete(medicamentoForm)" #medicamentoForm="ngForm">
     <mat-form-field>
       <input
-        type="number"
+        type="string"
         matInput
         placeholder="Digite ID do medicamento a ser deletado (Use a consulta de medicamentos caso não saiba o ID)"
         aria-describedby="Teste"
-        name="nomeMedicamentoDelete"
+        name="idMedicamentoDelete"
         ngModel
         required
         minlength="2"/>
