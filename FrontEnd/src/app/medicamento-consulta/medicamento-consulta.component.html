@@ -1,18 +1,27 @@
 <mat-card>
   <form (submit)="onConsultarMedicamento(medicamentoForm)" #medicamentoForm="ngForm">
     <mat-form-field>
-      <input
-      type="text"
-      matInput
-      placeholder="Digite o nome do medicamento para consulta."
-      name="nomeMedicamentoConsulta"
-      ngModel
-      required
-      minlength="2" />
+      <input type="text" matInput placeholder="Digite o nome do medicamento para consulta."
+        name="nomeMedicamentoConsulta" ngModel required minlength="2" />
       <mat-error>Digite um nome válido.</mat-error>
     </mat-form-field>
-
     <button mat-raised-button color="primary">Consultar</button>
-
   </form>
+
+    <!-- *ngIf também é uma diretiva estrutural -->
+    <mat-accordion>
+      <!-- *ngFor é uma diretiva estrutural -->
+      <mat-expansion-panel *ngFor="let medicamento of medicamentos">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ medicamento.nomeMedicamento }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Nome: {{ medicamento.nomeMedicamento }}</p>
+        <p>Hospital: {{ medicamento.hospital }}</p>
+        <p>Quantidade: {{medicamento.quantidadeDisponivel}}</p>
+        <p>ID: {{medicamento.id}}</p>
+      </mat-expansion-panel>
+    </mat-accordion>
+
 </mat-card>

@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
  import { MatExpansionModule } from '@angular/material/expansion'
  import { MatInputModule } from '@angular/material/input';
  import { MatToolbarModule } from '@angular/material/toolbar'
+ import {MatIconModule} from '@angular/material/icon';
+
 
  import { MedicamentoConsultaComponent } from './medicamento-consulta/medicamento-consulta.component';
  import { MedicamentoInserirComponent } from './medicamento-inserir/medicamento-inserir.component';
@@ -44,7 +46,8 @@ import { AppComponent } from './app.component';
     MatExpansionModule,
     MatInputModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,8 @@
 <mat-card>
-  <form>
+  <form (submit)="onAtualizarMedicamento(medicamentoForm)" #medicamentoForm="ngForm">
     <mat-form-field>
       <input
-        type="number"
+        type="string"
         matInput
         placeholder="Digite o ID do medicamento para atualizar o estoque (Use a consulta de medicamentos caso não saiba o ID)"
         name="idMedicamentoAtualizar"

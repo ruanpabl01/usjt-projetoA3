@@ -12,16 +12,15 @@ import { Medicamento } from '../medicamento.model';
 
 export class MedicamentoConsultaComponent {
   medicamentos: Medicamento[];
-  clientesSubscription: Subscription;
 
   constructor(private medicamentoService: MedicamentoService) {
 
   }
 
   onConsultarMedicamento(form: NgForm){
-    // console.log(form.value.nomeMedicamentoConsulta)
-    console.log(this.medicamentoService.getMedicamento(form.value.nomeMedicamentoConsulta));
+    this.medicamentos = this.medicamentoService.consultarMedicamento(
+      form.value.nomeMedicamentoConsulta
+    );
+    form.resetForm()
   }
-
 }
-

@@ -15,6 +15,10 @@ export class MedicamentoDeleteComponent {
     ) {}
 
   onDelete(form: NgForm){
-    this.medicamentoService.removerMedicamento(form.value.idMedicamentoDelete)
+    this.medicamentoService.removerMedicamento(
+      form.value.idMedicamentoDelete
+    )
+    form.resetForm()
+    alert("Medicamento deletado!")
   }
 }
