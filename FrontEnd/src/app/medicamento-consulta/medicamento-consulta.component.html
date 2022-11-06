@@ -1,8 +1,14 @@
 <mat-card>
   <form (submit)="onConsultarMedicamento(medicamentoForm)" #medicamentoForm="ngForm">
     <mat-form-field>
-      <input type="text" matInput placeholder="Digite o nome do medicamento para consulta."
-        name="nomeMedicamentoConsulta" ngModel required minlength="2" />
+      <input
+        type="text"
+        matInput
+        placeholder="Digite o nome do medicamento para consulta."
+        name="nomeMedicamentoConsulta"
+        ngModel
+        required
+        minlength="2" />
       <mat-error>Digite um nome válido.</mat-error>
     </mat-form-field>
     <button mat-raised-button color="primary">Consultar</button>
@@ -11,7 +17,7 @@
     <!-- *ngIf também é uma diretiva estrutural -->
     <mat-accordion>
       <!-- *ngFor é uma diretiva estrutural -->
-      <mat-expansion-panel *ngFor="let medicamento of medicamentos">
+      <mat-expansion-panel *ngFor="let medicamento of medicamentosConsulta">
         <mat-expansion-panel-header>
           <mat-panel-title>
             {{ medicamento.nomeMedicamento }}

@@ -73,16 +73,24 @@ app.put('/medicamentos/:id', async (req, res) => {
     quantidadeDisponivel: req.body.quantidadeDisponivel
   })
 
-  console.log(medicamento)
-
   Medicamento.updateOne({_id: req.params.id }, medicamento).then((resultado) =>{
     console.log(resultado);
     res.status(200).json({ mensagem: "Atualização realizada com sucesso" });
 
   })
 
-  console.log("Entrei")
 })
+
+app.get("/medicamentos", (req, res) => {
+  console.log("Entrei");
+  Medicamento.find().then((documents) => {
+    console.log(documents);
+    res.status(200).json({
+      mensagem: "Tudo OK",
+      medicamentos: documents,
+    });
+  });
+});
 
 //Comunica o barramento
 app.post('/eventos', (req, res) => {
