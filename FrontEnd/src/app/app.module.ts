@@ -21,7 +21,7 @@ import { AppComponent } from './app.component';
  import { MedicamentoHomeComponent } from './medicamento-home/medicamento-home.component';
  import { MedicamentoDeleteComponent } from './medicamento-delete/medicamento-delete.component';
  import { MedicamentoAtualizarComponent } from './medicamento-atualizar/medicamento-atualizar.component';
-
+ import {MedicamentoSubtrairComponent} from './medicamento-subtrair/medicamento-subtrair.component';
  import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 
 
@@ -34,6 +34,7 @@ import { AppComponent } from './app.component';
     MedicamentoConsultaComponent,
     MedicamentoDeleteComponent,
     MedicamentoAtualizarComponent,
+    MedicamentoSubtrairComponent,
     CabecalhoComponent,
   ],
   imports: [

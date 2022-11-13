@@ -5,6 +5,7 @@ import { MedicamentoConsultaComponent } from './medicamento-consulta/medicamento
 import { MedicamentoDeleteComponent } from './medicamento-delete/medicamento-delete.component';
 import { MedicamentoHomeComponent } from './medicamento-home/medicamento-home.component';
 import { MedicamentoInserirComponent } from './medicamento-inserir/medicamento-inserir.component';
+import { MedicamentoSubtrairComponent } from './medicamento-subtrair/medicamento-subtrair.component';
 
 const routes: Routes = [
   //localhost:4200/ =>
@@ -30,7 +31,12 @@ const routes: Routes = [
   //localhost:3000/atualizar =>
   {
     path: 'deletar', component: MedicamentoDeleteComponent
-  }
+  },
+
+  //localhost:3000/subtrair =>
+  {
+    path: 'subtrair', component: MedicamentoSubtrairComponent
+  },
 
 ];
 

@@ -14,6 +14,7 @@ export class MedicamentoConsultaComponent implements OnInit {
   medicamentos: Medicamento[];
   medicamentosConsulta: Medicamento[];
   medicamentosSubcription: Subscription;
+  teste:boolean;
 
   constructor(private medicamentoService: MedicamentoService) {
 

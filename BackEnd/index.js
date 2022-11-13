@@ -57,32 +57,52 @@ app.post('/medicamentos', async (req, res) => {
 
 //DELETE para deletar um medicamento de acordo com o ID (DELETE).
 app.delete('/medicamentos/:id', async (req, res) => {
-  Medicamento.deleteOne({ _id: req.params.id }).then((resultado) => {
-    console.log(resultado);
-    res.status(200).json({ mensagem: "Medicamento removido" })
-  });
+
+  Medicamento.findById({_id: req.params.id}).then((resultado) =>{
+    console.log(resultado)
+    if(resultado != null){
+      Medicamento.deleteOne({ _id: req.params.id }).then((resultado) => {
+        console.log(resultado);
+        res.status(200).json({ mensagem: "Medicamento removido" })
+      });      
+    }else{
+      res.status(200).json({mensagem: "Medicamento não encontrado"})
+    }
+
+  })
+
+  // Medicamento.deleteOne({ _id: req.params.id }).then((resultado) => {
+  //   console.log(resultado);
+  //   res.status(200).json({ mensagem: "Medicamento removido" })
+  // });
+
 })
 
 //PUT para deletar um medicamento de acordo com o ID (DELETE).
 app.put('/medicamentos/:id', async (req, res) => {
-
+  
   const medicamento = new Medicamento({
     _id: req.params.id,
     nomeMedicamento: req.body.nomeMedicamento,
     hospital: req.body.hospital,
     quantidadeDisponivel: req.body.quantidadeDisponivel
   })
-
+  
+  //Envia a atualização para o barramento de eventos.
+  await axios.put("http://localhost:10000/eventos", {
+    tipo: "MedicamentoAtualizado",
+    dados: {
+      medicamento
+    },
+  });
+  
   Medicamento.updateOne({_id: req.params.id }, medicamento).then((resultado) =>{
     console.log(resultado);
     res.status(200).json({ mensagem: "Atualização realizada com sucesso" });
-
   })
-
 })
 
-app.get("/medicamentos", (req, res) => {
-  console.log("Entrei");
+app.get("/medicamentos", async (req, res) => {
   Medicamento.find().then((documents) => {
     console.log(documents);
     res.status(200).json({

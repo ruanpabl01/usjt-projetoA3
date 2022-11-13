@@ -14,6 +14,8 @@ import { MedicamentoService } from '../medicamento.service';
 
 export class MedicamentoInserirComponent {
 
+  teste:boolean;
+
   constructor(
     private medicamentoService: MedicamentoService,
     public route: ActivatedRoute

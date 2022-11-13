@@ -14,14 +14,38 @@
 
     <mat-form-field>
       <input
-        type="number"
+        type="string"
         matInput
-        placeholder="Digite a quantidade a ser subtraída do estoque do medicamento"
-        name="qtddMedicamentoAtualizar"
+        placeholder="Digite o novo nome do medicamento"
+        name="nomeMedicamentoAtualizar"
         ngModel
         required
         minlength="2"/>
-      <mat-error>Digite um ID válido</mat-error>
+      <mat-error>Digite um nome válido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        type="string"
+        matInput
+        placeholder="Digite o novo nome do hospital"
+        name="hospitalMedicamentoAtualizar"
+        ngModel
+        required
+        minlength="2"/>
+      <mat-error>Digite um nome válido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        type="number"
+        matInput
+        placeholder="Digite a nova quantidade do medicamento"
+        name="qtddMedicamentoAtualizar"
+        ngModel
+        required
+        />
+      <mat-error>Digite uma quantidade válida</mat-error>
     </mat-form-field>
 
     <button mat-raised-button color="primary">Atualizar</button>
