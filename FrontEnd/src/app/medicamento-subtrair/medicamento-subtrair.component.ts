@@ -14,6 +14,7 @@ export class MedicamentoSubtrairComponent {
   medicamentos: Medicamento[];
   medicamentosConsulta: Medicamento[];
   medicamentosSubcription: Subscription;
+  value: string;
 
   constructor(
     private medicamentoService: MedicamentoService
@@ -31,6 +32,7 @@ export class MedicamentoSubtrairComponent {
   }
 
   onAtualizarMedicamento(form: NgForm){
+    console.log(form.value)
     this.medicamentoService.subtrairMedicamento(
       form.value.idMedicamentoAtualizar, form.value.qtddMedicamentoAtualizar
     )

@@ -1,5 +1,5 @@
 <mat-card>
-  <form (submit)="onAtualizarMedicamento(medicamentoForm)" #medicamentoForm="ngForm">
+  <form  (submit)="onAtualizarMedicamento(medicamentoForm)" #medicamentoForm="ngForm">
     <mat-form-field>
       <input
         type="string"
@@ -24,7 +24,7 @@
       <mat-error>Digite um ID válido</mat-error>
     </mat-form-field>
 
-    <button mat-raised-button color="primary">Subtrair</button>
+    <button mat-raised-button color="primary" value="soma">Subtrair</button>
 
   </form>
 </mat-card>

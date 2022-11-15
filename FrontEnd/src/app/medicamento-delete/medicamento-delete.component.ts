@@ -17,18 +17,18 @@ export class MedicamentoDeleteComponent {
 
   constructor(
     private medicamentoService: MedicamentoService,
-    ) {}
+  ) { }
 
-    ngOnInit():void{
-      this.medicamentoService.getMedicamentos();
-      this.medicamentosSubcription = this.medicamentoService
-        .getListaDeMedicamentosAtualizadaObservable()
-        .subscribe((medicamentos: Medicamento[])=>{
-          this.medicamentos = medicamentos
-        })
-    }
+  ngOnInit(): void {
+    this.medicamentoService.getMedicamentos();
+    this.medicamentosSubcription = this.medicamentoService
+      .getListaDeMedicamentosAtualizadaObservable()
+      .subscribe((medicamentos: Medicamento[]) => {
+        this.medicamentos = medicamentos
+      })
+  }
 
-  onDelete(form: NgForm){
+  onDelete(form: NgForm) {
     this.medicamentoService.removerMedicamento(
       form.value.idMedicamentoDelete
     )

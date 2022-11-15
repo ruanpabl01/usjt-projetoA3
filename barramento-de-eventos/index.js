@@ -8,20 +8,36 @@ app.use(express.json());
 const eventos = [];
 
 app.post('/eventos', (req, res) => {
-    const evento = req.body;
-    eventos.push(evento);
-    for(i = 0; i < eventos.length; i++){
-        console.log(eventos[i])
-    }
-    res.status(200).send({msg: 'ok'});
-});
 
-app.put('/eventos', (req, res) => {
     const evento = req.body;
-    eventos.push(evento);
-    for(i = 0; i < eventos.length; i++){
-        console.log(eventos[i])
+
+    switch(evento.tipo){
+        
+        case 'MedicamentoCriado':
+            console.log("MedicamentoCriado");
+            eventos.push(evento)
+            break;
+
+        case 'MedicamentoAtualizado':
+            console.log("MedicamentoAtualizado");
+            for(i = 0; i < eventos.length; i++){
+                if(eventos[i].id === evento.id){
+                    eventos[i] = evento;
+                }
+            }
+            break;
+        
+        case 'MedicamentoDeletado':
+            console.log("MedicamentoDeletado");
+            for(i = 0; i < eventos.length; i++){
+                if(eventos[i].id === evento.id){
+                    eventos[i] = "Medicamento " + eventos[i].id + " removido."
+                }
+            }
+            break;
     }
+
+    axios.post("http://localhost:4000/eventos", eventos);
     res.status(200).send({msg: 'ok'});
 });
 
