@@ -52,7 +52,7 @@ export class MedicamentoService {
   }
 
   removerMedicamento(id: string): void {
-    if (id != "") {
+    if (id != null) {
       this.httpClient.delete<{ mensagem: string }>(`http://localhost:4000/medicamentos/${id}`)
         .subscribe((dados) => {
           if (dados.mensagem === "Medicamento removido") {
