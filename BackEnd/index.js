@@ -41,6 +41,7 @@ app.post('/medicamentos', async (req, res) => {
   })
 
   medicamento.save().then(async medicamentoInserido => {
+
     //Envia a atualização para o barramento de eventos.
     await axios.post("http://localhost:10000/eventos", {
       tipo: "MedicamentoCriado",
@@ -49,6 +50,7 @@ app.post('/medicamentos', async (req, res) => {
         medicamento
       },
     });
+
     res.status(201).json({
       id: medicamentoInserido._id,
     })
@@ -67,14 +69,14 @@ app.put('/medicamentos/:id', async (req, res) => {
 
   Medicamento.updateOne({_id: req.params.id }, medicamento).then(async (resultado) =>{
     //Envia a atualização para o barramento de eventos.
-    await axios.post("http://localhost:10000/eventos", {
+    await axios.put("http://localhost:10000/eventos", {
       tipo: "MedicamentoAtualizado",
       id: req.params.id,
       dados: {
         medicamento,
       },
     });
-    console.log(resultado);
+
     res.status(200).json({ mensagem: "Atualização realizada com sucesso" });
   })
 })
@@ -86,7 +88,7 @@ app.delete('/medicamentos/:id', async (req, res) => {
     if(resultado != null){
       Medicamento.deleteOne({ _id: req.params.id }).then(async (resultado) => {
 
-        await axios.post("http://localhost:10000/eventos", {
+        await axios.delete("http://localhost:10000/eventos/:id", {
           tipo: "MedicamentoDeletado",
           id: req.params.id,
         });

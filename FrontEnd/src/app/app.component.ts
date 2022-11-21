@@ -11,7 +11,6 @@ export class AppComponent {
   medicamentos: Medicamento[] = []
 
   onMedicamentoAdicionado(medicamento){
-    console.log(medicamento)
     this.medicamentos = [...this.medicamentos, medicamento]
   }
 }

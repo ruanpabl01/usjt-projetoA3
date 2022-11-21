@@ -32,7 +32,6 @@ export class MedicamentoSubtrairComponent {
   }
 
   onAtualizarMedicamento(form: NgForm){
-    console.log(form.value)
     this.medicamentoService.subtrairMedicamento(
       form.value.idMedicamentoAtualizar, form.value.qtddMedicamentoAtualizar
     )

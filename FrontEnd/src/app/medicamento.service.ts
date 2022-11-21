@@ -3,7 +3,6 @@ import { Subject } from "rxjs";
 import { HttpClient } from '@angular/common/http';
 import { Medicamento } from "./medicamento.model";
 import { map } from 'rxjs/operators';
-import { getLocaleDayPeriods } from "@angular/common";
 
 //single source of truth
 @Injectable({ providedIn: 'root' })
@@ -69,8 +68,9 @@ export class MedicamentoService {
   }
 
   consultarMedicamento(nome: string) {
-    if (([...this.medicamentos.filter((cli) => cli.nomeMedicamento === nome)]).length === 1) {
-      return ([...this.medicamentos.filter((cli) => cli.nomeMedicamento === nome)])
+
+    if (([...this.medicamentos.filter((cli) => cli.nomeMedicamento.includes(nome))]).length != 0) {
+      return ([...this.medicamentos.filter((cli) => cli.nomeMedicamento.includes(nome))])
     } else {
       alert("Medicamento não encontrado!")
       return null
