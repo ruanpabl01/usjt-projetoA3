@@ -57,7 +57,7 @@ app.post('/medicamentos', async (req, res) => {
   })
 })
 
-//PUT para aatualizar um medicamento de acordo com o ID (UPDATE).
+//PUT para atualizar um medicamento de acordo com o ID (UPDATE).
 app.put('/medicamentos/:id', async (req, res) => {
 
   const medicamento = new Medicamento({
@@ -76,7 +76,7 @@ app.put('/medicamentos/:id', async (req, res) => {
         medicamento,
       },
     });
-
+    console.log("ms1")
     res.status(200).json({ mensagem: "Atualização realizada com sucesso" });
   })
 })

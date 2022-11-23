@@ -12,6 +12,7 @@ app.post('/eventos', (req, res) => {
     console.log("MedicamentoCriado");
     eventos.push(evento)
     axios.post("http://localhost:4000/eventos", eventos)
+    axios.post("http://localhost:5000/eventos", eventos)
     res.status(200).send({msg: 'ok'});
 });
 
@@ -23,14 +24,16 @@ app.put('/eventos', (req, res) => {
             eventos[i] = evento;
         }
     }
-    axios.post("http://localhost:4000/eventos", eventos);
+    axios.post("http://localhost:4000/eventos", eventos)
+    axios.post("http://localhost:5000/eventos", eventos)
     res.status(200).send({msg: 'ok'})
 });
 
 app.delete('/eventos/:id', (req, res) => {
     eventos.pop(req.body);
     console.log("MedicamentoDeletado");
-    axios.post("http://localhost:4000/eventos", eventos);
+    axios.post("http://localhost:4000/eventos", eventos)
+    axios.post("http://localhost:5000/eventos", eventos)
     res.status(200).send({msg: 'ok'})
 })
 

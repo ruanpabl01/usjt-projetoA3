@@ -3,6 +3,7 @@ import { Subject } from "rxjs";
 import { HttpClient } from '@angular/common/http';
 import { Medicamento } from "./medicamento.model";
 import { map } from 'rxjs/operators';
+import { HashLocationStrategy } from "@angular/common";
 
 //single source of truth
 @Injectable({ providedIn: 'root' })
@@ -51,7 +52,9 @@ export class MedicamentoService {
   }
 
   removerMedicamento(id: string): void {
-    if (id != null) {
+    const idExiste = this.medicamentos.find((cli) => cli.id === id);
+
+    if (idExiste != undefined) {
       this.httpClient.delete<{ mensagem: string }>(`http://localhost:4000/medicamentos/${id}`)
         .subscribe((dados) => {
           if (dados.mensagem === "Medicamento removido") {
@@ -121,7 +124,7 @@ export class MedicamentoService {
             quantidadeDisponivel: copia[indice].quantidadeDisponivel
           }
 
-          this.httpClient.put(`http://localhost:4000/medicamentos/${id}`, medicamento).subscribe(() => {
+          this.httpClient.put(`http://localhost:5000/medicamentos/${id}`, medicamento).subscribe(() => {
             this.medicamentos = copia;
             this.listaMedicamentoAtualizada.next([...this.medicamentos]);
             alert("Medicamento atualizado!")
